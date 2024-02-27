@@ -563,6 +563,8 @@ else
 			echo -e '\xE2\x86\x91 That is a QR code containing your client configuration.'
 			echo
 			echo "$client added. Configuration available in:" ~/"$client.conf"
+                        read -p "AccountId: " account_id
+                        sudo aws s3 cp /root/$client.conf s3://vpn2-ouput/peers/$account_id/$client.conf
 			exit
 		;;
 		2)
